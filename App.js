@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, Image } from 'react-native';
+import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native';
 import Slider from '@react-native-community/slider'
 
 export default function App() {
@@ -18,6 +18,11 @@ export default function App() {
         maximumValue={20}
         />
       </View>
+
+      <TouchableOpacity style={styles.button}>
+        <Text style={styles.textButton}>Gerar</Text>
+      </TouchableOpacity>
+
     </View>
   );
 }
@@ -44,5 +49,19 @@ const styles = StyleSheet.create({
     backgroundColor: '#FFF',
     borderRadius: 16,
     padding: 6
+  },
+
+  button: {
+    backgroundColor: '#000',
+    width: '80%',
+    height: 50,
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderRadius: 16
+  },
+
+  textButton: {
+    color: "#FFF",
+    fontSize: 20
   }
 });
