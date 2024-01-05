@@ -1,7 +1,24 @@
 import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native';
 import Slider from '@react-native-community/slider'
+import { useState } from 'react'
+
+let charset = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
 
 export default function App() {
+  
+  const [size, setSize] = useState(6)
+
+  function generatePassword(){
+
+    let password = "";
+
+    for(let i = 0, n = charset.length; i < size; i++){
+      password += charset.charAt(Math.floor(Math.random() * n))
+    }
+    console.log(password);
+  }
+
+
   return (
     <View style={styles.container}>
       <Image
@@ -9,17 +26,19 @@ export default function App() {
       style={styles.icone}
       />
 
-      <Text style={styles.title}>20 caracteres</Text>
+      <Text style={styles.title}>{size} caracteres</Text>
 
       <View style={styles.area}>
         <Slider
-        style={styles.mySlider}
-        minimumValue={6}
-        maximumValue={20}
+          style={styles.mySlider}
+          minimumValue={6}
+          maximumValue={20}
+          value={size}
+          onValueChange={ (value) => setSize(value.toFixed(0)) }
         />
       </View>
 
-      <TouchableOpacity style={styles.button}>
+      <TouchableOpacity style={styles.button} onPress={generatePassword}>
         <Text style={styles.textButton}>Gerar</Text>
       </TouchableOpacity>
 
@@ -63,5 +82,10 @@ const styles = StyleSheet.create({
   textButton: {
     color: "#FFF",
     fontSize: 20
+  },
+
+  title: {
+    fontSize: 30,
+    fontWeight: 'bold',
   }
 });
