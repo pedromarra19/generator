@@ -12,13 +12,18 @@
     "@react-native-community/slider": "4.4.2",
     "@react-three/drei": "^9.93.0",
     "@react-three/fiber": "^8.15.13",
-    "expo": "~49.0.15",
+    "expo": "^49.0.0",
+    "expo-gl": "~13.0.1",
     "expo-status-bar": "~1.6.0",
+    "expo-three": "^7.0.0",
+    "r3f-native-orbitcontrols": "^1.0.9",
     "react": "18.2.0",
-    "react-native": "0.72.6"
+    "react-native": "0.72.5",
+    "three": "^0.160.0"
   },
   "devDependencies": {
-    "@babel/core": "^7.20.0"
+    "@babel/core": "^7.20.0",
+    "vite": "^5.0.11"
   },
   "private": true
 }

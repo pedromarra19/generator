@@ -1,13 +1,15 @@
+import React from 'react'
 import { StyleSheet, Text, View, Image, TouchableOpacity, Modal,  } from 'react-native';
 import Slider from '@react-native-community/slider'
 import { useState } from 'react'
 import { ModalPassword } from './src/components/modal';
 
+
 let charset = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
 
 export default function App() {
   
-  const [size, setSize] = useState(4)
+  const [size, setSize] = useState(8)
   const [passwordValue, setPasswordValue] = useState("")
   const [modalVisible, setModalVisible] = useState(false)
 
@@ -24,30 +26,33 @@ export default function App() {
 
 
   return (
+
     <View style={styles.container}>
-      <Image
-      source={require("./src/assets/icone.jpeg")}
-      style={styles.icone}
+
+      <Image 
+        source={require("./src/assets/icon.png")}
+        style={styles.icon}  
       />
 
-      <Text style={styles.title}>{size} lados</Text>
+      <Text style={styles.title}>{size} caracteres</Text>
 
       <View style={styles.area}>
         <Slider
           style={styles.mySlider}
-          minimumValue={4}
+          minimumValue={8}
           maximumValue={20}
-          step={2}
           value={size}
           onValueChange={ (value) => setSize(value.toFixed(0)) }
+          minimumTrackTintColor="#000"
+          thumbTintColor="#000"
         />
       </View>
 
       <TouchableOpacity style={styles.button} onPress={generatePassword}>
-        <Text style={styles.textButton}>Jogar</Text>
+        <Text style={styles.textButton}>Gerar</Text>
       </TouchableOpacity>
 
-      <Modal visible={modalVisible} animtionType="fade" transparent={true}>
+      <Modal visible={modalVisible} animationType="fade" transparent={true}>
         <ModalPassword password={passwordValue} handleClose={ () => setModalVisible(false)}/>
       </Modal>
 
@@ -63,7 +68,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
 
-  icone: {
+  icon: {
     marginBottom: 60,
     width: 175,
     height: 175,
@@ -76,21 +81,24 @@ const styles = StyleSheet.create({
     width: "80%",
     backgroundColor: '#FFF',
     borderRadius: 16,
-    padding: 6
+    padding: 20
   },
 
   button: {
-    backgroundColor: '#000',
+    backgroundColor: '#DAA520',
     width: '80%',
-    height: 50,
+    height: 60,
     alignItems: 'center',
     justifyContent: 'center',
-    borderRadius: 16
+    borderRadius: 32,
+    marginTop: 20,
+ 
   },
 
   textButton: {
     color: "#FFF",
-    fontSize: 20
+    fontSize: 20,
+    fontWeight: 'bold'
   },
 
   title: {

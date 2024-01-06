@@ -76,13 +76,13 @@ const styles = StyleSheet.create({
         flex: 1,
         alignItems: 'center',
         margin: 14,
-        padding: 8,
-        borderRadius: 16,
-        backgroundColor: '#D2691E'
+        padding: 16,
+        borderRadius: 32,
+        backgroundColor: '#DAA520'
     },
 
     buttonText:{
-        color: '#000',
+        color: '#FFF',
         fontWeight: 'bold'
     }
 })
